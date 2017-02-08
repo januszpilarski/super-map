@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Created by dingo on 03.01.2017.
+ * Created by januszpilarski.
  */
 
 @Entity
@@ -14,9 +14,9 @@ public class Place {
 
 	@Override
 	public String toString() {
-		return "Place{" + "id=" + id + ", place name='" + name + '\'' + ", longitude λ='" + coordinateX + '\''
-				+ ", latitude φ='" + coordinateY + '\'' + ", description='" + description + '\'' + ", dateadd='"
-				+ localDateAdd + '\'' + ", placeBranch=" + placeCategory + ", rate=" + rate + '}';
+		return "Place [id=" + id + ", name=" + name + ", coordinateX=" + coordinateX + ", coordinateY=" + coordinateY
+				+ ", description=" + description + ", localDateAdd=" + localDateAdd + ", placeCategory=" + placeCategory
+				+ ", rate=" + rate + ", pointsAndComments=" + pointsAndComments + "]";
 	}
 
 	@Id
