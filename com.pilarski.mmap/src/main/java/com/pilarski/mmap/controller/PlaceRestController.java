@@ -1,4 +1,4 @@
-package com.pilarski.mmap.web;
+package com.pilarski.mmap.controller;
 
 import com.pilarski.mmap.domain.Place;
 import com.pilarski.mmap.domain.PlaceCategory;
