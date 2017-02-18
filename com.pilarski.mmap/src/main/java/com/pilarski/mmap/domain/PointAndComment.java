@@ -14,6 +14,22 @@ public class PointAndComment {
 	public PointAndComment() {
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="pointAndComment_id")
@@ -24,8 +40,10 @@ public class PointAndComment {
 	@ManyToOne
 	@JoinColumn(name="place_id")
 	Place place;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	User user;
 	
-
 	public Place getPlace() {
 		return place;
 	}
