@@ -33,8 +33,39 @@ public class Place {
 	private int rate;
 	@OneToMany(mappedBy = "place")
 	private List<PointAndComment> pointsAndComments;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	User user;
 
 	public Place() {
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDate getLocalDateAdd() {
+		return localDateAdd;
+	}
+
+	public void setLocalDateAdd(LocalDate localDateAdd) {
+		this.localDateAdd = localDateAdd;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public void setPointsAndComments(List<PointAndComment> pointsAndComments) {
+		this.pointsAndComments = pointsAndComments;
 	}
 
 	public Place(String name, String coordinatex, String coordinatey, String description, LocalDate localDateAdd,
@@ -87,13 +118,6 @@ public class Place {
 		this.description = description;
 	}
 
-	public LocalDate getlocalDateAdd() {
-		return localDateAdd;
-	}
-
-	public void setlocalDateAdd(LocalDate dateadd) {
-		this.localDateAdd = dateadd;
-	}
 
 	public PlaceCategory getPlaceCategory() {
 		return placeCategory;
