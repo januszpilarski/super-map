@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.persistence.JoinColumn;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class User {
 	private Long id;
 	private String username;
 	private String password;
+	private String passwordConfirm;
 	private String email;
 
 	@ManyToMany
@@ -94,6 +96,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	@Transient
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
 	}
 
 }
