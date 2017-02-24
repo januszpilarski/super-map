@@ -9,7 +9,12 @@ public interface PlaceService {
 
 	Place findPlace(long id);
 
+	Place findByName(String name);
+
+	void save(Place place);
+
 	List<Place> findAll();
+
 	List<Place> findPlaceByPlaceCategory(PlaceCategory placeCategory);
 
 }
