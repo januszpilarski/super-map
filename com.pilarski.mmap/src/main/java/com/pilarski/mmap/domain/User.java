@@ -16,12 +16,6 @@ import java.util.Set;
 @Entity
 public class User {
 
-	public User(String username, String password, String email) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.email = email;
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,6 +23,7 @@ public class User {
 	private Long id;
 	private String username;
 	private String password;
+	@Column(insertable = false)
 	private String passwordConfirm;
 	private String email;
 
@@ -97,7 +92,6 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	@Transient
 	public String getPasswordConfirm() {
 		return passwordConfirm;
 	}

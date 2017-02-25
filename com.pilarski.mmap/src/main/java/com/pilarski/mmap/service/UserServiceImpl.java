@@ -25,10 +25,18 @@ public class UserServiceImpl implements UserService{
         user.setRoles(new HashSet<>(roleRepository.findAll()));
         userRepository.save(user);
     }
+    
+    @Override
+	public User findUser(long id) {
+		return userRepository.findById(id);
+	}
 
     @Override
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+    public User findByEmailAndActiveTrue(String email) {
+		return userRepository.findByEmail(email);
+	}
 
 }
