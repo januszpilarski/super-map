@@ -5,10 +5,6 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
- * Created by januszpilarski.
- */
-
 @Entity
 public class Place {
 
@@ -117,7 +113,6 @@ public class Place {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 
 	public PlaceCategory getPlaceCategory() {
 		return placeCategory;
