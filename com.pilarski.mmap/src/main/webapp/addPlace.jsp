@@ -13,7 +13,8 @@
 
 <title>Create a place</title>
 
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="${contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 
 </head>
@@ -24,7 +25,7 @@
 
 		<form:form method="POST" modelAttribute="placeForm"
 			class="form-signin">
-			<h2 class="form-signin-heading">Create place</h2>
+			<h2 class="form-signin-heading" align="center">Create place</h2>
 			<spring:bind path="name">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="name" class="form-control"
@@ -52,13 +53,15 @@
 			<spring:bind path="placeCategory">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:select path="placeCategory" class="form-control">
-						<form:option value="NONE" label="Category" />
-						<form:options items="${com.pilarski.mmap.domain.PlaceCategory.values()}" />
+						<form:option value="NONE" label="select category" align="right" />
+						<form:options
+							items="${com.pilarski.mmap.domain.PlaceCategory.values()}"
+							itemLabel="category" />
 					</form:select>
 					<form:errors path="placeCategory"></form:errors>
 				</div>
 			</spring:bind>
-			
+
 			<spring:bind path="description">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="description" path="description"
@@ -69,7 +72,9 @@
 
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
 		</form:form>
-
+		<h3 class="text-center">
+			<a href="${contextPath}/getPlaces">Place list</a>
+		</h3>
 	</div>
 	<!-- /container -->
 	<script
