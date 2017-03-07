@@ -29,22 +29,31 @@ public class PlaceController {
 	private UserService userService;
 	@Autowired
 	private CurrentUserService curUserSer;
-
+	/**
+	 * This method display form to add new place to database.
+	 * @param model
+	 * @return view
+	 */
 	@RequestMapping(value = "/addPlace", method = RequestMethod.GET)
 	public String addPlace(Model model) {
 		model.addAttribute("placeForm", new Place());
 
 		return "addPlace";
 	}
-
+	/**
+	 * This method save new place in database.
+	 * @param placeForm Parameter passes place object to validation. 
+	 * @param bindingResult
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/addPlace", method = RequestMethod.POST)
 	public String addPlace(@ModelAttribute("placeForm") Place placeForm, BindingResult bindingResult, Model model) {
 		placeValidator.validate(placeForm, bindingResult);
 
 		if (bindingResult.hasErrors()) {
 			return "addPlace";
-		}
-		
+		}		
 	
 		String user = curUserSer.getLogin();
 		System.out.println(user);
@@ -54,14 +63,23 @@ public class PlaceController {
 		
 		return "redirect:/addPlace";
 	}
-	
+	/**
+	 * This method display all places from database.
+	 * @param model
+	 * @return view
+	 */
 	@RequestMapping(value = "/getPlaces", method = RequestMethod.GET)
 	public String getPlaces(Model model) {
 		List<Place> places = placeService.findAll();
 		model.addAttribute("places", places);
 		return "getPlaces";
 	}
-	
+	/**
+	 * This method display place details.
+	 * @param id
+	 * @param model
+	 * @return view
+	 */
 	@RequestMapping(value = "/placeDetails/{id}", method = RequestMethod.GET)
 	public String placeDetails(@PathVariable("id") Long id, Model model) {
 		Place place = placeService.findPlace(id);
