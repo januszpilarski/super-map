@@ -31,22 +31,22 @@ public class PlaceValidator implements Validator {
 			errors.rejectValue("name", "Size.placeForm.name");
 		}
 		if (placeService.findByName(place.getName()) != null) {
-			errors.rejectValue("name", "Duplicate.nameForm.name");
+			errors.rejectValue("name", "Duplicate.placeForm.name");
 		}
 
 		ValidationUtils.rejectIfEmpty(errors, "coordinateX", "NotEmpty");
 		if (place.getCoordinateX().matches("[0-8][0-9]-[0-5][0-9]-[0-5][0-9][NS]")) {
-			errors.rejectValue("coordinateX", "matches.placeForm.coordinateX");
+			errors.rejectValue("coordinateX", "Matches.placeForm.coordinateX");
 		}
 		
 		ValidationUtils.rejectIfEmpty(errors, "coordinateY", "NotEmpty");
 		if (place.getCoordinateX().matches("[0-1][0-7][0-9]-[0-5][0-9]-[0-5][0-9][EW]")) {
-			errors.rejectValue("coordinateY", "matches.placeForm.coordinateY");
+			errors.rejectValue("coordinateY", "Matches.placeForm.coordinateY");
 		}
 		
 		ValidationUtils.rejectIfEmpty(errors, "placeCategory", "NotEmpty");
 		if (place.getPlaceCategory().equals(placeCategory)) {
-			errors.rejectValue("placeCategoryn", "matches.placeForm.coordinateY");
+			errors.rejectValue("placeCategoryn", "Matches.placeForm.placeCategory");
 		}
 		
 		ValidationUtils.rejectIfEmpty(errors, "description", "NotEmpty");

@@ -34,11 +34,11 @@ public class PlaceController {
 	 * @param model
 	 * @return view
 	 */
-	@RequestMapping(value = "/addPlace", method = RequestMethod.GET)
+	@RequestMapping(value = "/newPlace", method = RequestMethod.GET)
 	public String addPlace(Model model) {
 		model.addAttribute("placeForm", new Place());
 
-		return "addPlace";
+		return "newPlace";
 	}
 	/**
 	 * This method save new place in database.
@@ -47,12 +47,12 @@ public class PlaceController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/addPlace", method = RequestMethod.POST)
+	@RequestMapping(value = "/newPlace", method = RequestMethod.POST)
 	public String addPlace(@ModelAttribute("placeForm") Place placeForm, BindingResult bindingResult, Model model) {
 		placeValidator.validate(placeForm, bindingResult);
 
 		if (bindingResult.hasErrors()) {
-			return "addPlace";
+			return "newPlace";
 		}		
 	
 		String user = curUserSer.getLogin();
@@ -61,7 +61,7 @@ public class PlaceController {
 		placeForm.setUser(userService.findByUsername(user));
 		placeService.save(placeForm);
 		
-		return "redirect:/addPlace";
+		return "redirect:/newPlace";
 	}
 	/**
 	 * This method display all places from database.
